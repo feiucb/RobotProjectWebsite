@@ -307,14 +307,14 @@ a.read_more:hover {
 
 
 
-/* sensings
+/* sensing
 ---------------------------------*/
 
-#sensing {
+#Sensing {
     padding: 60px 0px;
     background: #ED5441;
 }
-#sensing h2{
+#Sensing h2{
   color: #fff;
 
 }
@@ -653,32 +653,32 @@ img {
 /* About Us
 --------------------------- */
  
-.Planing-container {
+.Planning-container {
 background-repeat: no-repeat;
 background-position: right;
 background-size: auto 100%;
 background-position-y: 70px;
 }
-#Planing .read-more{
+#Planning .read-more{
 	border: 1px solid #ED5441;
 	color: #1a1a1a;
 }
 
-#Planing .read-more:hover{
+#Planning .read-more:hover{
 	background-color: #e74c3c;
 	border: 1px solid #e74c3c;
 	color: #fff;
 }
-.Planing-post-container{
+.Planning-post-container{
 	background-repeat: no-repeat;
 	background-position: right;
 	background-size: auto 100%;
 }
-.Planing{
+.Planning{
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
-.Planing h3{
+.Planning h3{
 	font-size:28px;
 }
 .points{ 
@@ -686,24 +686,24 @@ background-position-y: 70px;
 	font-size:14px;
 	padding-left:0px;
 }
-.Planing p{
+.Planning p{
 	/*font-size: 0.9375em;*/
 	line-height: 1.625em;
 	padding: 15px 0;
 }
-.Planing .Planing-list{
+.Planning .Planning-list{
 	list-style: none;
 	margin-bottom: 20px;
 	padding-left:0px;
 }
 
-.Planing .points{
+.Planning .points{
 	position: relative;
 	list-style-type: none;
 	padding: 5px 0 5px 30px;
 }
 
-.Planing .points:before{
+.Planning .points:before{
 	content: "\f058";
 	position: absolute;
 	font-family: FontAwesome;
@@ -713,7 +713,7 @@ background-position-y: 70px;
 	top: 3px;
 }
 
-.Planing-link a:first-child{
+.Planning-link a:first-child{
 	margin-left: 0;
 }
 
@@ -835,7 +835,7 @@ margin-bottom: 5px;
     color: #cb2026;
 }
  
-#Planing {
+#Planning {
     padding: 60px 0;
 }
 
@@ -1688,7 +1688,7 @@ div.mc-image {
 --------------------------- */
 @media (min-width: 768px) and (max-width: 1200px) {
 
-.Planing-container {
+.Planning-container {
 background-repeat: no-repeat;
 background-position: right;
 background-size: auto 59%;
@@ -1701,7 +1701,7 @@ float: right;
 width: auto; 
 text-align: center;
 }
-.Planing-container{
+.Planning-container{
 	background-image:none;
 }
 p{
@@ -1726,10 +1726,10 @@ margin: 0 0 9px 0;
 .inner_section {
 padding: 20px 0 20px;
 }
-#Planing img{
+#Planning img{
 margin-bottom:20px;
 }
-#Planing h3{
+#Planning h3{
 font-size:26px;
 line-height:22px;
 }
