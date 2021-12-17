@@ -307,7 +307,7 @@ a.read_more:hover {
 
 
 
-/* sensing
+/* Sensing
 ---------------------------------*/
 
 #Sensing {
@@ -318,21 +318,21 @@ a.read_more:hover {
   color: #fff;
 
 }
-.sensing_wrapper {
+.Sensing_wrapper {
     padding: 40px 0 40px;
 }
 
-.sensing_section {
+.Sensing_section {
 }
 
-.sensing_block {
+.Sensing_block {
     text-align: center;
     padding-left: 15px;
     padding-right: 15px; 
 	position: relative;
 }
 
-.sensing_icon {  
+.Sensing_icon {  
     width: 90px;
     height: 85px;
     margin: 0px auto 25px; 
@@ -340,7 +340,7 @@ a.read_more:hover {
 
  
 
-.sensing_icon span {
+.Sensing_icon span {
     background: transparent; 
     display: block;
     height: 100%;
@@ -348,7 +348,7 @@ a.read_more:hover {
 	border: 1px solid #fff
 }
 
-.sensing_icon i {
+.Sensing_icon i {
   color: #fff;
 font-size: 40px;
 margin-top: 0;
@@ -359,7 +359,7 @@ display: block;
 text-align: center;
 }
 
-.sensing_block h3 {
+.Sensing_block h3 {
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-size: 25px;
@@ -367,7 +367,7 @@ text-align: center;
 margin: 35px 0 15px; 
 }
 
-.sensing_block p {
+.Sensing_block p {
     font-size: 16px;
     color: #fff;
     margin: 0px; 
@@ -396,19 +396,19 @@ margin: 35px 0 15px;
     padding: 0px;
 }
 
-.sensing-list {
+.Sensing-list {
     padding: 0 0 0 0;
     font-size: 14px;
     margin-bottom: 40px;
 }
 
-.sensing-list-col1 {
+.Sensing-list-col1 {
     float: left;
     width: 60px;
     text-align: center;
 }
 
-.sensing-list-col1 i {
+.Sensing-list-col1 i {
     display:;
     color: #888;
     font-size: 19px;
@@ -416,7 +416,7 @@ margin: 35px 0 15px;
     line-height: 20px;
 }
 
-.sensing-list-col2 {
+.Sensing-list-col2 {
     overflow: hidden;
 }
 
@@ -1733,10 +1733,10 @@ margin-bottom:20px;
 font-size:26px;
 line-height:22px;
 }
-.sensing_block h3 { 
+.Sensing_block h3 { 
 font-size: 16px;
 }
-sensing_block p {
+Sensing_block p {
 font-size: 14px; 
 margin: 0px;
 margin-bottom: 20px;
