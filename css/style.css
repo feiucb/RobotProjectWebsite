@@ -310,14 +310,25 @@ a.read_more:hover {
 
 
 
-.Design_block p {
+#Design p{
     text-align: left;
     font-size: 16px;
-    color: #222222;
+    color: #000000;
     margin: 0px; 
 }
 
-
+.Design_block p{
+    text-align: left;
+    font-size: 16px;
+    color: #000000;
+    margin: 0px; 
+}
+.Design_block li{
+    text-align: left;
+    font-size: 16px;
+    color: #000000;
+    margin: 0px; 
+}
 /* sensings
 ---------------------------------*/
 
