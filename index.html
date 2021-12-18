@@ -99,24 +99,29 @@
         Our project's desired functionality is to control a robot conductor who reads a sheet of music from an image, understands
         what cues need to be communicated to the musician, and convey those cues by executing arm motions at the proper time.
       </p>
-
-      <div class="Design_block col-lg-6"> 
+      <br>
+      <br>
+      <div class="Design_block col-lg-12"> 
+      
       <h3 style="text-align: center">Components</h3>
-      <ul>
-        <li>
-          <b>Sensing:</b> Optical Music Recognition (OMR) software reads the music
-          for the cues that need to be conducted
-        </li>
-        <li>
-          <b>Planning:</b> Convert the music cues into robot arm motions
-        </li>
-        <li>
-          <b>Actuation:</b> Execute the motions with the robot arms with the required timing
-        </li>
-      </ul>
-    </div>
+        <ul>
+          <li class="col-lg-4">
+            <b>Sensing:</b> Optical Music Recognition (OMR) software reads the music
+            for the cues that need to be conducted
+          </li>
+          <li class="col-lg-4">
+            <b>Planning:</b> Convert the music cues into robot arm motions
+          </li>
+          <li class="col-lg-4">
+            <b>Actuation:</b> Execute the motions with the robot arms with the required timing
+          </li>
+        </ul>
 
-    <div class="Design_block col-lg-6">
+    </div>
+ 
+    <div class="Design_block col-lg-12">
+      <br>
+      <br>
       <h3 style="text-align: center">Design Choices for Motion</h3>
       <p>
         We require our robot conductor to repeat a sequence of motions many times, so reproducibility of target poses is 
@@ -126,7 +131,7 @@
       </p>
 
       <figure>
-        <img src="img/conductor_motion_44.png" alt="Conductor Motion">
+        <img src="img/conductor_motion_44.png " float="left” alt="Conductor Motion">
         <figcaption>Diagram of Conductor Motion in 4/4 Time</figcaption>
       </figure>
       
@@ -472,12 +477,14 @@
 <div class="Results_logos">
   <div class="container">
 
-    <img src="img/Sheet_music/hot_cross_buns.png" style="float:left;width:560px;height:315px;" alt="Hot Cross Buns">
+    <img src="img/Sheet_music/hot_cross_buns.png"style="width:1120px" alt="Hot Cross Buns">
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/CwRsXUbEWsk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/kMszsECiIWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <img src="img/Sheet_music/canon_in_d.png" style="float:left;width:560px;height:315px;" alt="Canon D">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/iuCKFPoy_r0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   
+<<<<<<< HEAD
     <div class="Results_block">
       <p>
         Orchestra was able to successfully read music in 4/4, accurately read the pitch and duration of notes, and parse it in a readable format with no errors. 
@@ -520,6 +527,8 @@
         planning and execution design, since the conductor does not stop with a single error, which becomes even more important when conducting a long piece. 
       </p>
     </div>
+=======
+>>>>>>> b3308c8de865ffbae4e1569918589f122bf2906a
   </div>
 </div>
 </section>
