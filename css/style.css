@@ -42,6 +42,10 @@ a, a:hover, a:active {
     clear: both;
 }
 
+section{
+    padding-top: 2%;
+    background-color: #f2f7ee;
+}
 
 /* Styles
 ---------------------------------*/
@@ -301,6 +305,7 @@ a.read_more:hover {
 
 	
 
+/*section*/
 
 
 
