@@ -152,7 +152,7 @@ p {
 
 .navStyle ul li a {
     display: block;
-    font-size: 14px;
+    font-size: 12px;
     color: #222222;
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
@@ -299,63 +299,40 @@ a.read_more:hover {
     border: 1px solid #ED5441;
 }
 
-/* Design */
+	
 
-#Design {
-    padding: 60px 0px;
-    background: #fff;
-}
-#Design h2{
-  color: #000000;
-}
 
-.Design_block {
-    text-align: center;
-    padding-left: 15px;
-    padding-right: 15px; 
-	position: relative;
-}
 
-.Design_block h3 {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-    color: #111111;
-margin: 35px 0 15px; 
-}
 
-.Design_block p {
-    font-size: 16px;
-    color: #222222;
-    margin: 0px; 
-}
 
-/* Sensing
+
+
+/* sensings
 ---------------------------------*/
 
-#Sensing {
+#sensing {
     padding: 60px 0px;
     background: #ED5441;
 }
-#Sensing h2{
+#sensing h2{
   color: #fff;
 
 }
-.Sensing_wrapper {
+.sensing_wrapper {
     padding: 40px 0 40px;
 }
 
-.Sensing_section {
+.sensing_section {
 }
 
-.Sensing_block {
+.sensing_block {
     text-align: center;
     padding-left: 15px;
     padding-right: 15px; 
 	position: relative;
 }
 
-.Sensing_icon {  
+.sensing_icon {  
     width: 90px;
     height: 85px;
     margin: 0px auto 25px; 
@@ -363,7 +340,7 @@ margin: 35px 0 15px;
 
  
 
-.Sensing_icon span {
+.sensing_icon span {
     background: transparent; 
     display: block;
     height: 100%;
@@ -371,7 +348,7 @@ margin: 35px 0 15px;
 	border: 1px solid #fff
 }
 
-.Sensing_icon i {
+.sensing_icon i {
   color: #fff;
 font-size: 40px;
 margin-top: 0;
@@ -382,7 +359,7 @@ display: block;
 text-align: center;
 }
 
-.Sensing_block h3 {
+.sensing_block h3 {
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-size: 25px;
@@ -390,7 +367,7 @@ text-align: center;
 margin: 35px 0 15px; 
 }
 
-.Sensing_block p {
+.sensing_block p {
     font-size: 16px;
     color: #fff;
     margin: 0px; 
@@ -419,19 +396,19 @@ margin: 35px 0 15px;
     padding: 0px;
 }
 
-.Sensing-list {
+.sensing-list {
     padding: 0 0 0 0;
     font-size: 14px;
     margin-bottom: 40px;
 }
 
-.Sensing-list-col1 {
+.sensing-list-col1 {
     float: left;
     width: 60px;
     text-align: center;
 }
 
-.Sensing-list-col1 i {
+.sensing-list-col1 i {
     display:;
     color: #888;
     font-size: 19px;
@@ -439,7 +416,7 @@ margin: 35px 0 15px;
     line-height: 20px;
 }
 
-.Sensing-list-col2 {
+.sensing-list-col2 {
     overflow: hidden;
 }
 
@@ -556,27 +533,6 @@ a.contact_btn:hover {
     background: #ED5441;
     color: #fff;
     text-decoration: none;
-}
-
-.Actuation_block {
-    text-align: center;
-    padding-left: 15px;
-    padding-right: 15px; 
-	position: relative;
-}
-
-.Actuation_block h3 {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-    color: #111111;
-margin: 35px 0 15px; 
-}
-
-.Actuation_block p {
-    font-size: 16px;
-    color: #222222;
-    margin: 0px; 
 }
 
 img {
@@ -697,33 +653,32 @@ img {
 /* About Us
 --------------------------- */
  
-.Planning-container {
+.Planing-container {
 background-repeat: no-repeat;
 background-position: right;
 background-size: auto 100%;
 background-position-y: 70px;
 }
-#Planning .read-more{
+#Planing .read-more{
 	border: 1px solid #ED5441;
 	color: #1a1a1a;
 }
 
-#Planning .read-more:hover{
+#Planing .read-more:hover{
 	background-color: #e74c3c;
 	border: 1px solid #e74c3c;
 	color: #fff;
 }
-
-.Planning-post-container{
+.Planing-post-container{
 	background-repeat: no-repeat;
 	background-position: right;
 	background-size: auto 100%;
 }
-.Planning{
+.Planing{
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
-.Planning h3{
+.Planing h3{
 	font-size:28px;
 }
 .points{ 
@@ -731,24 +686,24 @@ background-position-y: 70px;
 	font-size:14px;
 	padding-left:0px;
 }
-.Planning p{
+.Planing p{
 	/*font-size: 0.9375em;*/
 	line-height: 1.625em;
 	padding: 15px 0;
 }
-.Planning .Planning-list{
+.Planing .Planing-list{
 	list-style: none;
 	margin-bottom: 20px;
 	padding-left:0px;
 }
 
-.Planning .points{
+.Planing .points{
 	position: relative;
 	list-style-type: none;
 	padding: 5px 0 5px 30px;
 }
 
-.Planning .points:before{
+.Planing .points:before{
 	content: "\f058";
 	position: absolute;
 	font-family: FontAwesome;
@@ -758,29 +713,8 @@ background-position-y: 70px;
 	top: 3px;
 }
 
-.Planning-link a:first-child{
+.Planing-link a:first-child{
 	margin-left: 0;
-}
-
-.Planning_block {
-    text-align: center;
-    padding-left: 15px;
-    padding-right: 15px; 
-	position: relative;
-}
-
-.Planning_block h3 {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-    color: #111111;
-margin: 35px 0 15px; 
-}
-
-.Planning_block p {
-    font-size: 16px;
-    color: #222222;
-    margin: 0px; 
 }
 
 
@@ -901,7 +835,7 @@ margin-bottom: 5px;
     color: #cb2026;
 }
  
-#Planning {
+#Planing {
     padding: 60px 0;
 }
 
@@ -1754,7 +1688,7 @@ div.mc-image {
 --------------------------- */
 @media (min-width: 768px) and (max-width: 1200px) {
 
-.Planning-container {
+.Planing-container {
 background-repeat: no-repeat;
 background-position: right;
 background-size: auto 59%;
@@ -1767,7 +1701,7 @@ float: right;
 width: auto; 
 text-align: center;
 }
-.Planning-container{
+.Planing-container{
 	background-image:none;
 }
 p{
@@ -1792,17 +1726,17 @@ margin: 0 0 9px 0;
 .inner_section {
 padding: 20px 0 20px;
 }
-#Planning img{
+#Planing img{
 margin-bottom:20px;
 }
-#Planning h3{
+#Planing h3{
 font-size:26px;
 line-height:22px;
 }
-.Sensing_block h3 { 
+.sensing_block h3 { 
 font-size: 16px;
 }
-Sensing_block p {
+sensing_block p {
 font-size: 14px; 
 margin: 0px;
 margin-bottom: 20px;
@@ -1873,7 +1807,6 @@ color: #222;
 font-size:12px;
 padding: 10px 11px;
 }
-} 
 @media (max-width: 480px){ 
 .navStyle {
 float: left;
