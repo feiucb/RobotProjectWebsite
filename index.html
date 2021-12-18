@@ -104,6 +104,7 @@
       <div class="Design_block col-lg-12"> 
       
       <h3 style="text-align: center">Components</h3>
+        <br>
         <ul>
           <li class="col-lg-4">
             <b>Sensing:</b> Optical Music Recognition (OMR) software reads the music
@@ -146,10 +147,9 @@
       </p>
     </div>
 
-    <br>
-
     <!--Ending line of Design-->
     <div class="Design_block">
+      <br>
       <p>
         <strong>To see specific implementation details, please see the Sensing, Planning, and Actuation sections.</strong>
       </p>
@@ -263,6 +263,7 @@
       or lowering its arm (decrescendo). And for the ending measure, depending on the duration of the last note, both arms will be told to make a 
       “hold” motion for the duration of the last note before finishing with an “end” motion.
     </p>
+    <br>
 
   </div>
 
@@ -333,92 +334,21 @@
   <div class="inner_wrapper Planning-container fadeInLeft animated wow">
     <div class="container">
       <h2>Actuation</h2>
-    <h4 style="text-align: center">Baxter Conductor Motion</h4>
+      <h4 style="text-align: center">Baxter Conductor Motion</h4>
 
-    <div class="Actuation_block">
-      <h3 style="text-align: center">Setup</h3>
-      <p>
-        To set up the execution of our Baxter motions, we use Baxter’s joint trajectory controller and 
-        start an action server with “rosrun baxter_interface joint_trajectory_action_server.py”.  
-        To set up the planning of our motions, we start MoveIt with “roslaunch baxter_conductor_moveit_config demo_baxter.launch”. 
-        Here, MoveIt is configured using our modified kinematics.yaml and joint_limits.yaml to use the TRAC-IK solver and Baxter 
-        joint velocity limits. This starts the move_group node which communicates with the JointTrajectoryActionServer to actuate 
-        the motors given a planned trajectory. The use of an action server allows us to cancel a plan during execution, which is 
-        important for timing.  
-      </p>
-    </div>
-      <div class="inner_section">
-   
-      <div class="row">
-              <div class="col-lg-12 Planning">
-                <div class="row">
-                <div class="col-md-6">
-                  <h3 >Baxter configuration</h3>
-                  <h4 >joint_limits.yaml</h4>
-                  <ul>
-                    <li >
-                       MoveIt joint velocity limits increased
-                    </li>
-                    <li>Allows us to move the robot faster - up to 60 bpm so far</li>
-                  </ul>  
-                  <h4 >kinematics.yaml </h4>
-                  <ul>
-                    <li >
-                      Change IK solver to use TRACLabs' IK solver
-                    </li>
-                    <li>This drastically reduced computation time. Reduces the pauses between beats</li>
-                  </ul>  
-                  </div><!-- /.col-md-6 -->
-                  
-                  <div class="col-md-6">
-                    <h3 >Getting goal positions</h3>
-                    <h4 >Record </h4>
-                    <ul>
-                      <li >
-                        We record named joint positions for each beat and other motions (cutoff, crescendo, decrescendo)
-                      </li>
-                      <li>Joint positions allow for more reproducible motions - important when doing many cycles of the beat pattern</li>
-                    </ul> 
-                    </div><!-- /.col-md-6 -->
-                  
-                </div><!-- /.row -->	
-              </div><!-- /.col-lg-12 -->
-
-            </div>
-
-            <div class="row">
-              <div class="col-lg-12 Planning">
-                <div class="row">
-                <div class="col-md-6">
-                  <h3 >Planning to positions</h3>
-                  <h4 >MoveIt</h4>
-                  <ul>
-                    <li >
-                      Use MoveIt to plan a RobotTrajectory using TRAC-IK
-                    </li>
-                    <li>Scale RobotTrajectory velocities up to speed up the execution</li>
-                  </ul>  
-                  </div><!-- /.col-md-6 -->
-                  
-                  <div class="col-md-6">
-                    <h3 >Getting goal positions</h3>
-                    <h4 >MoveGroupCommander </h4>
-                    <ul>
-                      <li >
-                        Timing the motion for tempo
-                      </li>
-                      <li>Motion is stopped after a set time</li>
-                      <li>Plan towards next beat from current position</li>
-                      <li>Faster tempo means smaller motions</li>
-                    </ul>  
-                    </div><!-- /.col-md-6 -->
-                  
-                </div><!-- /.row -->	
-              </div><!-- /.col-lg-12 -->
-
-            </div>
-        
+      <div class="Actuation_block">
+        <h3 style="text-align: center">Setup</h3>
+        <p>
+          To set up the execution of our Baxter motions, we use Baxter’s joint trajectory controller and 
+          start an action server with “rosrun baxter_interface joint_trajectory_action_server.py”.  
+          To set up the planning of our motions, we start MoveIt with “roslaunch baxter_conductor_moveit_config demo_baxter.launch”. 
+          Here, MoveIt is configured using our modified kinematics.yaml and joint_limits.yaml to use the TRAC-IK solver and Baxter 
+          joint velocity limits. This starts the move_group node which communicates with the JointTrajectoryActionServer to actuate 
+          the motors given a planned trajectory. The use of an action server allows us to cancel a plan during execution, which is 
+          important for timing.  
+        </p>
       </div>
+      
 
       <div class="Actuation_block">
         <h3 style="text-align: center">Getting Goal Position Specifics</h3>
@@ -463,8 +393,9 @@
           was calculated. This results in a compact right arm beat pattern when tempo is increased.
         </p>
       </div>
+
     </div> 
-    </div>  
+  </div>  
 </section>
 <!--Actuation --> 
 
@@ -481,9 +412,55 @@
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/CwRsXUbEWsk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/kMszsECiIWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+    <br>
+    <br>
+    
     <img src="img/Sheet_music/canon_in_d.png" style="float:left;width:560px;height:315px;" alt="Canon D">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/iuCKFPoy_r0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   
+    <div class="Results_block">
+      <p>
+        Orchestra was able to successfully read music in 4/4, accurately read the pitch and duration of notes, and parse it in a readable format with no errors. 
+        From here, we were able to feed in the text format into our planning parser for further processing.
+      </p>
+
+      <br>
+
+      <p>
+        We were able to read the output text representation of the sheet music and send the appropriate information through ROS topics using a publish and subscribe system. 
+        Both the OMR software and the planner were configured to work reliably before the project showcase in order for Baxter to make the appropriate executions.
+      </p>
+
+      <br>
+
+      <p>
+        Baxter was able to execute the conducting motions for a simple case (Hot Cross Buns) and a more complex case (Canon in D). Tempos up to 75 beats per minute (BPM) were achieved. 
+      </p>
+
+      <br>
+
+      <p>
+        Hot Cross Buns requires 4 sets (measures) of 4/4 conducting pattern with both arms with the last set being an ending sequence of two beats, a hold, and a cutoff. 
+        Baxter performs these actions with correct tempo at 60 BPM, staying synced with the music. 
+      </p>
+
+      <br>
+
+      <p>
+        Canon in D has a more complex pattern which includes a left arm crescendo cue (where the arm rises over the course of a measure). To set up this crescendo motion, 
+        the left arm rests in a neutral position for the prior measure, and following the crescendo, resumes the 4/4 conducting pattern. While Baxter followed the 
+        music at 60 BPM well through the crescendo, the transition into resuming the 4/4 conducting pattern lagged behind the beat. The ending motion over a whole note (4 beats) was well executed. 
+      </p>
+
+      <br>
+
+      <p>
+        A faster tempo 75 BPM for Hot Cross Buns was able to keep the timing with the music. However, the faster cutoffs of the motions caused a right arm motion to fail for one beat. 
+        Here, although the planner was unable to find a path for that beat, it was able to recover on the following motion. This recovery is a good sign of the robustness of the 
+        planning and execution design, since the conductor does not stop with a single error, which becomes even more important when conducting a long piece. 
+      </p>
+    </div>
   </div>
 </div>
 </section>
@@ -491,6 +468,7 @@
 
 <!--Conclusion-->
 <section id="Conclusion">
+  <h2>Conclusion</h2>
   <div class="container">
     <div class="Conclusion_block">
       <p>
@@ -512,15 +490,15 @@
       <br>
 
       <p>
-        Currently, the speed of the arms is fixed, and the parameter we modify is the tempo, which cuts off the motion at the right timing. This works for tempos up to 75 bpm, 
-        but looks clunky when under 40 bpm because the motion is fast and pauses long. A dynamic assignment of the velocity scaling factor may allow for conducting motions to 
+        Currently, the speed of the arms is fixed, and the parameter we modify is the tempo, which cuts off the motion at the right timing. This works for tempos up to 75 BPM, 
+        but looks clunky when under 40 BPM because the motion is fast and pauses long. A dynamic assignment of the velocity scaling factor may allow for conducting motions to 
         stay smooth with varying tempo.
       </p>
 
       <br>
 
       <p>
-        Above 75 bpm, we observed that the conductor would get repeatedly “stuck” at certain positions, like the faster Hot Cross Buns example. Since this is caused by 
+        Above 75 BPM, we observed that the conductor would get repeatedly “stuck” at certain positions, like the faster Hot Cross Buns example. Since this is caused by 
         bad paths between the cut off joint position and the next target, implementing a new set of joint positions for a smaller conducting pattern for faster tempos may 
         help resolve this issue. There would be a range of tempos where the normal and smaller patterns are used, and within those, the timing will modify their sizes further. 
       </p>
