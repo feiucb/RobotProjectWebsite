@@ -1893,12 +1893,12 @@ width: 99%;
 display:none;
 }
 }
-#AdditionalMaterials h3{
+.AdditionalMaterials > h3{
 text-align: center;
 }
-#AdditionalMaterials ul{
+.AdditionalMaterials > ul{
     overflow:hidden;
 }
-#AdditionalMaterials li{
+.AdditionalMaterials >ul > li{
     display:inline-block;
  }
