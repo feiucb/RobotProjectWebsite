@@ -713,6 +713,7 @@ background-position-y: 70px;
 	border: 1px solid #e74c3c;
 	color: #fff;
 }
+
 .Planning-post-container{
 	background-repeat: no-repeat;
 	background-position: right;
@@ -759,6 +760,27 @@ background-position-y: 70px;
 
 .Planning-link a:first-child{
 	margin-left: 0;
+}
+
+.Planning_block {
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px; 
+	position: relative;
+}
+
+.Planning_block h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    color: #111111;
+margin: 35px 0 15px; 
+}
+
+.Planning_block p {
+    font-size: 16px;
+    color: #222222;
+    margin: 0px; 
 }
 
 

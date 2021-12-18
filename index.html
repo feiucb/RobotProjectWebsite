@@ -100,7 +100,7 @@
       </p>
       
       <h3>Components</h3>
-      <ul style="list-style-type:disc">
+      <ul>
         <li>
           <b>Sensing:</b> Optical Music Recognition (OMR) software reads the music
           for the cues that need to be conducted
@@ -114,7 +114,7 @@
       </ul>
     </div>
 
-    <h2>Design Choices for Motion</h2>
+    <h3>Design Choices for Motion</h3>
     <div class="Design_block">
       <p>
         We require our robot conductor to repeat a sequence of motions many times, so reproducibility of target poses is 
@@ -124,9 +124,11 @@
       </p>
 
       <figure>
-        <img src="img/conductor_motion_44.png" alt="Conductor Motion" style="width:100%">
+        <img src="img/conductor_motion_44.png" alt="Conductor Motion">
         <figcaption>Diagram of Conductor Motion in 4/4 Time</figcaption>
       </figure>
+      
+      <br>
 
       <p>
         When a human conductor speeds up the tempo, the conducting motion pattern becomes more compact. For example the 4/4 pattern 
@@ -136,6 +138,8 @@
         time to go to each target position allows for the pattern to become smaller and the tempo of conducting to increase. 
       </p>
     </div>
+
+    <br>
 
     <!--Ending line of Design-->
     <div class="Design_block">
@@ -275,42 +279,42 @@
 									<p>Publish and subscribe system	</p>
                   <img src="img/subscribe.jpg" alt="subscribe Diagrams">
 								</div><!-- /.col-md-6 -->
-
-                <div class="col-md-6">
-                  <h3>Planner</h3>
-                  <p>
-                    The purpose of the planner is to plan the arm trajectory 
-                    between positions at the correct speed.
-                  </p>
-
-                  <p>
-                    The PathPlanner class instantiates the MoveIt commander, MoveGroupCommander 
-                    with both_arms of the Baxter robot. The plan_to_joint_goal function takes the 
-                    target joint position of both arms as an input and uses MoveIt to plan a 
-                    trajectory from the current joint position to the target joint position. 
-                    This plan is computed using the inverse kinematics (IK) solver TRAC-IK and 
-                    returns a RobotTrajectory message. To increase the trajectory speed, we scale 
-                    the joint velocity within RobotTrajectory.JointTrajectory by a user-determined 
-                    factor.
-                  </p>
-
-                  <h3>Configuration</h3>
-                  <p>
-                    The main issue we encountered in implementing the conductor was getting accurate 
-                    timings of the motions. We found that the TRAC-IK solver is significantly faster 
-                    than the default KDL solver, drastically reducing the lag between successive motions. 
-                    We include the TRAC-IK package and modify the Baxter MoveIt configuration kinematics.yaml 
-                    file to switch IK solvers. Additionally, we turn off joint velocity limits in MoveIt 
-                    configuration joint_limits.yaml, so velocity limits are set to Baxter maximum joint velocities.
-                  </p>
-
-                </div>
 								
 							</div><!-- /.row -->	
 						</div><!-- /.col-lg-12 -->
 					</div>
       
     </div>
+
+    <div class="Planning_block">
+      <h3>Planner</h3>
+      <p>
+        The purpose of the planner is to plan the arm trajectory 
+        between positions at the correct speed.
+      </p>
+
+      <p>
+        The PathPlanner class instantiates the MoveIt commander, MoveGroupCommander 
+        with both_arms of the Baxter robot. The plan_to_joint_goal function takes the 
+        target joint position of both arms as an input and uses MoveIt to plan a 
+        trajectory from the current joint position to the target joint position. 
+        This plan is computed using the inverse kinematics (IK) solver TRAC-IK and 
+        returns a RobotTrajectory message. To increase the trajectory speed, we scale 
+        the joint velocity within RobotTrajectory.JointTrajectory by a user-determined 
+        factor.
+      </p>
+
+      <h3>Configuration</h3>
+      <p>
+        The main issue we encountered in implementing the conductor was getting accurate 
+        timings of the motions. We found that the TRAC-IK solver is significantly faster 
+        than the default KDL solver, drastically reducing the lag between successive motions. 
+        We include the TRAC-IK package and modify the Baxter MoveIt configuration kinematics.yaml 
+        file to switch IK solvers. Additionally, we turn off joint velocity limits in MoveIt 
+        configuration joint_limits.yaml, so velocity limits are set to Baxter maximum joint velocities.
+      </p>
+    </div>
+
   </div> 
   </div>
 </section>
@@ -396,7 +400,28 @@
       </div>
 
       <div class="Actuation_block">
-        <h3>Execution and Timing</h3>
+        <h2 style="text-align: center">Getting Goal Position Specifics</h2>
+        <p>
+          For conducting, there is a set of positions that the hands/arms are in at certain timings of the music in order to give visual 
+          cues to the musicians. For the right arm, these are the beats for a given time signature. For the left arm, in addition to the beats, 
+          there are additional movements for controlling the loudness/dynamics of the music. Finally, there is an ending motion to coordinate 
+          the stop of the music. 
+        </p>
+
+        <p>
+          These positions were recreated by hand on the Baxter robot, and a helper function save_joint_vals.py was used in order to name and save 
+          the joint positions as text files in the motion/positions/ folder. These positions were recorded for each arm individually, so different 
+          sequences of left and right arm motions were supported. 
+        </p>
+
+        <p>
+          Care was taken with setting each joint so that each connecting motion would have efficient joint movements, and pose symmetrical for 
+          both arms when applicable.
+        </p>
+      </div>
+
+      <div class="Actuation_block">
+        <h2 style="text-align: center">Execution and Timing</h2>
         <p>
           Execution of the robot commands sent by the music reader is done by the function conductor_motion. 
           This node subscribes to the conductor_commands topic and executes the motions given in music_commands messages 
