@@ -115,7 +115,7 @@
     </div>
 
     <div class="Design_block">
-      <h3>Design Choices for Motion</h3>
+      <h3 style="text-align: center">Design Choices for Motion</h3>
       <p>
         We require our robot conductor to repeat a sequence of motions many times, so reproducibility of target poses is 
         critical. To accomplish this, we chose to set target poses as robot joint positions instead of end effector poses. 
@@ -334,6 +334,19 @@
     <div class="container">
       <h2>Actuation</h2>
     <h4 style="text-align: center">Baxter Conductor Motion</h4>
+
+    <div class="Actuation_block">
+      <h3 style="text-align: center">Setup</h3>
+      <p>
+        To set up the execution of our Baxter motions, we use Baxter’s joint trajectory controller and 
+        start an action server with “rosrun baxter_interface joint_trajectory_action_server.py”.  
+        To set up the planning of our motions, we start MoveIt with “roslaunch baxter_conductor_moveit_config demo_baxter.launch”. 
+        Here, MoveIt is configured using our modified kinematics.yaml and joint_limits.yaml to use the TRAC-IK solver and Baxter 
+        joint velocity limits. This starts the move_group node which communicates with the JointTrajectoryActionServer to actuate 
+        the motors given a planned trajectory. The use of an action server allows us to cancel a plan during execution, which is 
+        important for timing.  
+      </p>
+    </div>
       <div class="inner_section">
    
       <div class="row">
@@ -408,7 +421,7 @@
       </div>
 
       <div class="Actuation_block">
-        <h3 style="text-align: center">Getting Goal Position Specifics</h2>
+        <h3 style="text-align: center">Getting Goal Position Specifics</h3>
         <p>
           For conducting, there is a set of positions that the hands/arms are in at certain timings of the music in order to give visual 
           cues to the musicians. For the right arm, these are the beats for a given time signature. For the left arm, in addition to the beats, 
@@ -431,7 +444,7 @@
       <br>
 
       <div class="Actuation_block">
-        <h3 style="text-align: center">Execution and Timing</h2>
+        <h3 style="text-align: center">Execution and Timing</h3>
         <p>
           Execution of the robot commands sent by the music reader is done by the function conductor_motion. 
           This node subscribes to the conductor_commands topic and executes the motions given in music_commands messages 

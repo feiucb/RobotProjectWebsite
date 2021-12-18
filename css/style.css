@@ -260,7 +260,7 @@ font-size: 20px;
 color: #C3C3C3;
 margin: 0 0 30px 0;
 line-height: 33px;
-text-align: left;
+text-align: left; /* used to be center */
 font-family: sans-serif;
 font-weight: 100;
 }
@@ -305,6 +305,12 @@ a.read_more:hover {
 
 
 
+.Design_block p {
+    text-align: left;
+    font-size: 16px;
+    color: #222222;
+    margin: 0px; 
+}
 
 
 /* sensings
@@ -535,6 +541,28 @@ a.contact_btn:hover {
     text-decoration: none;
 }
 
+.Actuation_block {
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px; 
+	position: relative;
+}
+
+.Actuation_block h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    color: #111111;
+margin: 35px 0 15px; 
+}
+
+.Actuation_block p {
+    text-align: left;
+    font-size: 16px;
+    color: #222222;
+    margin: 0px; 
+}
+
 img {
     max-width: 100%;
 }
@@ -715,6 +743,28 @@ background-position-y: 70px;
 
 .Planing-link a:first-child{
 	margin-left: 0;
+}
+
+.Planning_block {
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px; 
+	position: relative;
+}
+
+.Planning_block h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    color: #111111;
+margin: 35px 0 15px; 
+}
+
+.Planning_block p {
+    text-align: left;
+    font-size: 16px;
+    color: #222222;
+    margin: 0px; 
 }
 
 
