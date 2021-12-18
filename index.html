@@ -114,8 +114,8 @@
       </ul>
     </div>
 
-    <h3>Design Choices for Motion</h3>
     <div class="Design_block">
+      <h3>Design Choices for Motion</h3>
       <p>
         We require our robot conductor to repeat a sequence of motions many times, so reproducibility of target poses is 
         critical. To accomplish this, we chose to set target poses as robot joint positions instead of end effector poses. 
@@ -196,11 +196,17 @@
     </div>
 
     <div class="Sensing_block">
-      <p>Below is a visual summary of what Orchestra does.</p>
+      <p>
+        <strong>Below is a visual summary of what Orchestra does.</strong>
+      </p>
       <img src="img/Orchestra_images/orchestra_summary.png" alt = "Orchestra Summary">
 
+      <br>
+
       <p>
-        Here are a list of steps that Orchestra performs using computer vision and machine learning algorithms:
+        <strong>
+          Below are a list of steps that Orchestra performs using computer vision and machine learning algorithms:
+        </strong>
       </p>
       
       <h3>Noise Removal</h3>
@@ -287,7 +293,7 @@
     </div>
 
     <div class="Planning_block">
-      <h3>Planner</h3>
+      <h3 style="text-align: center">Planner</h3>
       <p>
         The purpose of the planner is to plan the arm trajectory 
         between positions at the correct speed.
@@ -304,7 +310,9 @@
         factor.
       </p>
 
-      <h3>Configuration</h3>
+      <br>
+
+      <h3 style="text-align: center">Configuration</h3>
       <p>
         The main issue we encountered in implementing the conductor was getting accurate 
         timings of the motions. We found that the TRAC-IK solver is significantly faster 
@@ -400,7 +408,7 @@
       </div>
 
       <div class="Actuation_block">
-        <h2 style="text-align: center">Getting Goal Position Specifics</h2>
+        <h3 style="text-align: center">Getting Goal Position Specifics</h2>
         <p>
           For conducting, there is a set of positions that the hands/arms are in at certain timings of the music in order to give visual 
           cues to the musicians. For the right arm, these are the beats for a given time signature. For the left arm, in addition to the beats, 
@@ -420,8 +428,10 @@
         </p>
       </div>
 
+      <br>
+
       <div class="Actuation_block">
-        <h2 style="text-align: center">Execution and Timing</h2>
+        <h3 style="text-align: center">Execution and Timing</h2>
         <p>
           Execution of the robot commands sent by the music reader is done by the function conductor_motion. 
           This node subscribes to the conductor_commands topic and executes the motions given in music_commands messages 
