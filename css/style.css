@@ -1893,3 +1893,12 @@ width: 99%;
 display:none;
 }
 }
+#AdditionalMaterials h3{
+text-align: center;
+}
+#AdditionalMaterials ul{
+    overflow:hidden;
+}
+#AdditionalMaterials li{
+    display:inline-block;
+ }
