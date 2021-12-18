@@ -602,6 +602,54 @@ img {
     padding-bottom: 60px;
 }
 
+/* Results */
+.Results_block {
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px; 
+	position: relative;
+}
+
+.Results_block h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    color: #111111;
+margin: 35px 0 15px; 
+}
+
+.Results_block p {
+    text-align: left;
+    font-size: 16px;
+    color: #222222;
+    margin: 0px; 
+}
+/* End Results */
+
+/* Conclusion */
+.Conclusion_block {
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px; 
+	position: relative;
+}
+
+.Conclusion_block h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    color: #111111;
+margin: 35px 0 15px; 
+}
+
+.Conclusion_block p {
+    text-align: left;
+    font-size: 16px;
+    color: #222222;
+    margin: 0px; 
+}
+/* End Conclusion */
+
 
 /* Happy Demo
 ---------------------------------*/

@@ -65,7 +65,7 @@
                   <ul style="list-style-type:disc">
                     <li><b>Time signature:</b> how many notes are in a measure</li>
                     <li><b>Rhythm:</b> duration of notes</li>
-                    <li><b>Tempo:</b>> speed of the song</li>
+                    <li><b>Tempo:</b> speed of the song</li>
                     <li><b>Dynamics:</b> when a portion of the song changes volume</li>
                   </ul>
                   For time signature, Baxter is able to conduct songs in 4/4 time, recognize duration of ending
@@ -211,56 +211,30 @@
       <br>
 
       <p>
-        <strong>
-          Below are a list of steps that Orchestra performs using computer vision and machine learning algorithms:
-        </strong>
+        The Orchestra software takes in an image file of sheet music as input, cleans up the image using image processing techniques, 
+        and then outputs the sheet music into a readable text format.
       </p>
-      
-      <h3>Noise Removal</h3>
-        <p>
-          The software takes an image file of a PDF of sheet music and removes any potential source of noise that
-          it can find, such as markings or discoloration not related to the music.
-        </p>
-        <img src="img/Orchestra_images/noise_removal.png" alt="Noise Removal">
-      
-      <h3>Binarization</h3>
-        <p>
-          The software takes the cleaned image file and converts it into only black and white colors so that it's 
-          easier for the computer vision algorithm to parse through the file without having to deal with extra colors
-          (i.e. a gray background)
-        </p>
-        <img src="img/Orchestra_images/binarization.png" alt="Binarization">
-      
-      <h3>Staff Line Removal</h3>
-        <p>
-          Orchestra gets rid of the extraneous staff lines for further data processing.
-          The only things that the software cares about are the time signature, pitch of the notes, the note 
-          durations, and the measure endings.
-        </p>
-        <img src="img/Orchestra_images/staff_line_removal.png" alt="Staff Line Removal">
-      
-      <h3>Cutted Buckets</h3>
-        <p>
-          From the removed staff lines, we break each line into separate arrays so that it's easier to iterate
-          through the song.
-        </p>
-        <img src="img/Orchestra_images/cutted_buckets_together.png" alt="Cutted Buckets">
-  
-      <h3>Segmentation and Detection</h3>
-        <p>
-          Here, the computer vision software detects the time signature, the rhythm of the notes, and the measure 
-          bars in order to figure out when a line starts and ends.
-        </p>
-        <img src="img/Orchestra_images/segmentation_and_detection_total.png" alt="Segmentation and Detection">
-  
-      <h3>Recognition</h3>
-        <p>
-          Finally, we see that the software has the capability to recognize which time signature the sheet music
-          indicates, the specific pitches of the notes appended with its note duration, and grouped notes within brackets
-          in order to denote chords. Orchestra is built to be able to recognize sharps and flats as well as dotted notes.
-          All of this information is outputted as multiple arrays depending on the number of lines in the sheet music.
-        </p>
-        <img src="img/Orchestra_images/recognition.png" alt="Recognition">
+
+      <br>
+
+      <p>
+        First, the software takes an image file of a PDF of sheet music and removes any potential source of noise that it can find, such 
+        as markings or discoloration not related to the music. Then, it takes the cleaned image file and converts it to black and white 
+        colors so that it’s easier for the CV algorithm to parse through the image without having to deal with extra colors (i.e. a gray background). 
+        Orchestra gets rid of extraneous staff lines, and from this, the software breaks each line into separate arrays so that it’s easier to iterate 
+        through the song. Then, the time signature, note durations, and the measure bars are detected in order to figure out when a line starts and ends. 
+        From here, the specific time signature, pitch of the notes, the note durations, and chords are recognized and outputted into separate arrays. 
+        Orchestra is also able to recognize sharps, flats, and dotted notes. 
+      </p>
+
+      <br>
+
+      <p>
+        For the conductor motion, we only really care about the time signature, the note durations, and the measure endings. Unfortunately, the 
+        OMR software was inconsistent with the output when it came to songs that weren’t in 4/4 time, so we only considered songs in 4/4 time 
+        given the time constraints of the project. Also, due to the nature of the Baxter hardware, songs that had a higher tempo or faster speed 
+        were a lot harder to execute in practice, so we chose songs that were slower than 75 BPM in order for the Baxter arms to be able to execute the full movements.
+      </p>
     </div>
 
   </div>
@@ -273,6 +247,25 @@
   <div class="container">
     <h2>Planning</h2>
 	<h6>System Design and Operational Diagrams</h6>
+
+  <div class="Planning_block">
+    <h3 style="text-align: center">Parser</h3>
+    <p>
+      Given the input of the text representation of the sheet music from Orchestra, we had to make some fundamental 
+      assumptions about the song to conduct to maximize fluidity of the Baxter arm movements. For starters, the time signature 
+      was assumed to be in 4/4 time for the entire duration of the song, and the tempo was assumed to be 75 BPM or slower. 
+    </p>
+
+    <p>
+      From here, the parser iterates through a measure and conducts the 4/4 time motion for the right hand and sends it into right_arm_motions. 
+      For the left arm, it mirrors the right_arm_motions for a majority of the song and is sent into left_arm_motions. 
+      Depending on if there are dynamic changes, the left arm will indicate this by either raising its arm (crescendo) 
+      or lowering its arm (decrescendo). And for the ending measure, depending on the duration of the last note, both arms will be told to make a 
+      “hold” motion for the duration of the last note before finishing with an “end” motion.
+    </p>
+
+  </div>
+
     <div class="inner_section">
  
 	  <div class="row">
@@ -491,6 +484,51 @@
     <img src="img/Sheet_music/canon_in_d.png" style="float:left;width:560px;height:315px;" alt="Canon D">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/iuCKFPoy_r0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   
+<<<<<<< HEAD
+    <div class="Results_block">
+      <p>
+        Orchestra was able to successfully read music in 4/4, accurately read the pitch and duration of notes, and parse it in a readable format with no errors. 
+        From here, we were able to feed in the text format into our planning parser for further processing.
+      </p>
+
+      <br>
+
+      <p>
+        We were able to read the output text representation of the sheet music and send the appropriate information through ROS topics using a publish and subscribe system. 
+        Both the OMR software and the planner were configured to work reliably before the project showcase in order for Baxter to make the appropriate executions.
+      </p>
+
+      <br>
+
+      <p>
+        Baxter was able to execute the conducting motions for a simple case (Hot Cross Buns) and a more complex case (Canon in D). Tempos up to 75 beats per minute (bpm) were achieved. 
+      </p>
+
+      <br>
+
+      <p>
+        Hot Cross Buns requires 4 sets (measures) of 4/4 conducting pattern with both arms with the last set being an ending sequence of two beats, a hold, and a cutoff. 
+        Baxter performs these actions with correct tempo at 60 bpm, staying synced with the music. 
+      </p>
+
+      <br>
+
+      <p>
+        Canon in D has a more complex pattern which includes a left arm crescendo cue (where the arm rises over the course of a measure). To set up this crescendo motion, 
+        the left arm rests in a neutral position for the prior measure, and following the crescendo, resumes the 4/4 conducting pattern. While Baxter followed the 
+        music at 60 bpm well through the crescendo, the transition into resuming the 4/4 conducting pattern lagged behind the beat. The ending motion over a whole note (4 beats) was well executed. 
+      </p>
+
+      <br>
+
+      <p>
+        A faster tempo 75bpm for Hot Cross Buns was able to keep the timing with the music. However, the faster cutoffs of the motions caused a right arm motion to fail for one beat. 
+        Here, although the planner was unable to find a path for that beat, it was able to recover on the following motion. This recovery is a good sign of the robustness of the 
+        planning and execution design, since the conductor does not stop with a single error, which becomes even more important when conducting a long piece. 
+      </p>
+    </div>
+=======
+>>>>>>> b3308c8de865ffbae4e1569918589f122bf2906a
   </div>
 </div>
 </section>
@@ -498,7 +536,59 @@
 
 <!--Conclusion-->
 <section id="Conclusion">
-  <p>TBD</p>
+  <div class="container">
+    <div class="Conclusion_block">
+      <p>
+        Overall, our group was very satisfied with our results. We were able to meet all of our milestone requirements that we initially set, and we were able to come up 
+        with a solution that was overall quite presentable. All of the smooth movements that we tried to implement, such as the cutoff, hold, crescendo, and 
+        transition motions, were successfully done. 
+      </p>
+
+      <br>
+
+      <p>
+        While we were testing the Orchestra OMR software with different types of sheet music so that an image file from a phone can be used as input, we realized that the 
+        OMR software only works consistently with images that only contain music without words such as the title and lyrics. Also, lots of musical symbols such as tempo markings, 
+        fermatas and time signatures other than 4/4 were also unrecognized and led to gibberish output. So we had to use MuseScore and manually type out the cleanest version of 
+        sheet music that we possibly could for Hot Cross Buns and Canon in D so that the software could read it properly. If we had more time, we would definitely modify more 
+        of the Orchestra OMR software itself and use more diverse sheet music as training data so that the CV algorithm is able to detect and read more symbols accurately. 
+      </p>
+
+      <br>
+
+      <p>
+        Currently, the speed of the arms is fixed, and the parameter we modify is the tempo, which cuts off the motion at the right timing. This works for tempos up to 75 bpm, 
+        but looks clunky when under 40 bpm because the motion is fast and pauses long. A dynamic assignment of the velocity scaling factor may allow for conducting motions to 
+        stay smooth with varying tempo.
+      </p>
+
+      <br>
+
+      <p>
+        Above 75 bpm, we observed that the conductor would get repeatedly “stuck” at certain positions, like the faster Hot Cross Buns example. Since this is caused by 
+        bad paths between the cut off joint position and the next target, implementing a new set of joint positions for a smaller conducting pattern for faster tempos may 
+        help resolve this issue. There would be a range of tempos where the normal and smaller patterns are used, and within those, the timing will modify their sizes further. 
+      </p>
+
+      <br>
+
+      <p>
+        Our project goal in terms of application was in teaching/providing practice for young musicians. At a higher level, the conductor interprets the music and can add 
+        small nuances as well as adjust the sound of the orchestra in real time. Further improvements to our project may include adding more left hand motions: 
+        <ul style="list-style-type:disc">
+          <li>Cues for entrances of certain instruments</li>
+          <li>Emphasizing accented notes</li>
+          <li>Fermatas - hold until the conductor moves to next note</li>
+        </ul>
+      </p>
+
+      <br>
+
+      <p>
+        With a full orchestra and sensors, a real time feedback component can be added to listen to each section and adjust their volume with left hand gestures. 
+      </p>
+    </div>
+  </div>>
 </section>
 <!--Conclusion-->
 
@@ -572,11 +662,11 @@
   <h2 >Additional Materials</h2>
   <ul style="overflow:hidden; text-align: center;font-size: 25px;">
     <li style="display:inline-block;"><a href="https://github.com/ryusterakiba/RobotConductor" class="fa fa-github 3x" >Github    </a></li>
-    <li style="display:inline-block;"><a href="https://github.com/ryusterakiba/robot_conductor_ryu/tree/master/src/baxter_conductor_moveit_config/launch" class="fa fa-rocket 4x">Lunch  </a></li>
-    <li style="display:inline-block;"><a href="https://github.com/ryusterakiba/RobotConductor/blob/master/src/motion/msg/music_commands.msg" class="fa fa-envelope 4x" >Msg   </a></li>
-    <li style="display:inline-block;"><a href="https://github.com/ryusterakiba/robot_conductor_ryu/tree/master/src/motion/positions" class="fa fa-twitter 4x">Motion   </a></li>
-    <li style="display:inline-block;"><a href="https://github.com/ryusterakiba/robot_conductor_ryu/blob/master/src/motion/positions/position_description.txt" class="fa fa-arrows-alt 4x">Positions   </a></li>
-    <li style="display:inline-block;"><a href="https://github.com/ryusterakiba/robot_conductor_ryu/blob/master/src/motion/src/Setup.txt" class="fa fa-play">Tutorial   </a></li>   
+    <li style="display:inline-block;"><a href="https://github.com/ryusterakiba/robot_conductor_ryu/tree/master/src/baxter_conductor_moveit_config/launch" class="fa fa-rocket 4x">Launch Files</a></li>
+    <li style="display:inline-block;"><a href="https://github.com/ryusterakiba/RobotConductor/blob/master/src/motion/msg/music_commands.msg" class="fa fa-envelope 4x" >Msg File</a></li>
+    <li style="display:inline-block;"><a href="https://github.com/ryusterakiba/robot_conductor_ryu/tree/master/src/motion/positions" class="fa fa-twitter 4x">Positions</a></li>
+    <li style="display:inline-block;"><a href="https://github.com/ryusterakiba/robot_conductor_ryu/blob/master/src/motion/positions/position_description.txt" class="fa fa-arrows-alt 4x">Position Description</a></li>
+    <li style="display:inline-block;"><a href="https://github.com/ryusterakiba/robot_conductor_ryu/blob/master/src/motion/src/Setup.txt" class="fa fa-play">Setup</a></li>   
     <li style="display:inline-block;"><a href="https://github.com/AdelRizq/Orchestra" class="fa fa-github lg">Orchestra</a></li> 
   </ul>
 </div>
