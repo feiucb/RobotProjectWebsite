@@ -63,10 +63,10 @@
               <h3>Interesting Aspects</h3>
                 <p>This Baxter conductor is able to recognize the following:
                   <ul style="list-style-type:disc">
-                    <li>Time signature: how many notes are in a measure</li>
-                    <li>Rhythm: duration of notes</li>
-                    <li>Tempo: speed of the song</li>
-                    <li>Dynamics: when a portion of the song changes volume</li>
+                    <li><b>Time signature:</b> how many notes are in a measure</li>
+                    <li><b>Rhythm:</b> duration of notes</li>
+                    <li><b>Tempo:</b>> speed of the song</li>
+                    <li><b>Dynamics:</b> when a portion of the song changes volume</li>
                   </ul>
                   For time signature, Baxter is able to conduct songs in 4/4 time, recognize duration of ending
                   notes and adjust ending motions accordingly, keep a consistent speed with songs 75 BPM and slower 
@@ -91,7 +91,32 @@
 
 <!--Design-->
 <section id="Design">
-  <p>To see specific implementation details, please scroll below to the Sensing, Planning, and Actuation sections.</p>
+  <div class="container">
+    <h2>Design</h2>
+    <div class="Design_block">
+      <p>
+        Our project's desired functionality is to control a robot conductor who reads a sheet of music from an image, understands
+        what cues need to be communicated to the musician, and convey those cues by executing arm motions at the proper time.
+      </p>
+      
+      <h3>Components</h3>
+      <ul style="list-style-type:disc">
+        <li>
+          <b>Sensing:</b> Optical Music Recognition (OMR) software reads the music
+          for the cues that need to be conducted
+        </li>
+        <li>
+          <b>Planning:</b> Convert the music cues into robot arm motions
+        </li>
+        <li>
+          <b>Actuation:</b> Execute the motions with the robot arms with the required timing
+        </li>
+      </ul>
+    </div>
+  </div>
+  <p>
+    <strong>To see specific implementation details, please see the Sensing, Planning, and Actuation sections.</strong>
+  </p>
 </section>
 
 <!--Sensing-->
@@ -138,6 +163,9 @@
     </div>
 
     <div class="Sensing_block">
+      <p>Below is a visual summary of what Orchestra does.</p>
+      <img src="img/Orchestra_images/orchestra_summary.png" alt = "Orchestra Summary">
+
       <p>
         Here are a list of steps that Orchestra performs using computer vision and machine learning algorithms:
       </p>
