@@ -137,55 +137,58 @@
       </div> 
     </div>
 
-    <p>
-      Here are a list of steps that Orchestra performs using computer vision and machine learning algorithms:
-    </p>
-    
-    <h3>Noise Removal</h3>
+    <div class="Sensing_block">
       <p>
-        The software takes an image file of a PDF of sheet music and removes any potential source of noise that
-        it can find, such as markings or discoloration not related to the music.
+        Here are a list of steps that Orchestra performs using computer vision and machine learning algorithms:
       </p>
-      <img src="img/Orchestra_images/noise_removal.png" alt="Noise Removal">
-    
-    <h3>Binarization</h3>
-      <p>
-        The software takes the cleaned image file and converts it into only black and white colors so that it's 
-        easier for the computer vision algorithm to parse through the file without having to deal with extra colors
-        (i.e. a gray background)
-      </p>
-      <img src="img/Orchestra_images/binarization.png" alt="Binarization">
-    
-    <h3>Staff Line Removal</h3>
-      <p>
-        Orchestra gets rid of the extraneous staff lines for further data processing.
-        The only things that the software cares about are the time signature, pitch of the notes, the note 
-        durations, and the measure endings.
-      </p>
-      <img src="img/Orchestra_images/staff_line_removal.png" alt="Staff Line Removal">
-    
-    <h3>Cutted Buckets</h3>
-      <p>
-        From the removed staff lines, we break each line into separate arrays so that it's easier to iterate
-        through the song.
-      </p>
-      <img src="img/Orchestra_images/cutted_buckets_together.png" alt="Cutted Buckets">
+      
+      <h3>Noise Removal</h3>
+        <p>
+          The software takes an image file of a PDF of sheet music and removes any potential source of noise that
+          it can find, such as markings or discoloration not related to the music.
+        </p>
+        <img src="img/Orchestra_images/noise_removal.png" alt="Noise Removal">
+      
+      <h3>Binarization</h3>
+        <p>
+          The software takes the cleaned image file and converts it into only black and white colors so that it's 
+          easier for the computer vision algorithm to parse through the file without having to deal with extra colors
+          (i.e. a gray background)
+        </p>
+        <img src="img/Orchestra_images/binarization.png" alt="Binarization">
+      
+      <h3>Staff Line Removal</h3>
+        <p>
+          Orchestra gets rid of the extraneous staff lines for further data processing.
+          The only things that the software cares about are the time signature, pitch of the notes, the note 
+          durations, and the measure endings.
+        </p>
+        <img src="img/Orchestra_images/staff_line_removal.png" alt="Staff Line Removal">
+      
+      <h3>Cutted Buckets</h3>
+        <p>
+          From the removed staff lines, we break each line into separate arrays so that it's easier to iterate
+          through the song.
+        </p>
+        <img src="img/Orchestra_images/cutted_buckets_together.png" alt="Cutted Buckets">
+  
+      <h3>Segmentation and Detection</h3>
+        <p>
+          Here, the computer vision software detects the time signature, the rhythm of the notes, and the measure 
+          bars in order to figure out when a line starts and ends.
+        </p>
+        <img src="img/Orchestra_images/segmentation_and_detection_total.png" alt="Segmentation and Detection">
+  
+      <h3>Recognition</h3>
+        <p>
+          Finally, we see that the software has the capability to recognize which time signature the sheet music
+          indicates, the specific pitches of the notes appended with its note duration, and grouped notes within brackets
+          in order to denote chords. Orchestra is built to be able to recognize sharps and flats as well as dotted notes.
+          All of this information is outputted as multiple arrays depending on the number of lines in the sheet music.
+        </p>
+        <img src="img/Orchestra_images/recognition.png" alt="Recognition">
+    </div>
 
-    <h3>Segmentation and Detection</h3>
-      <p>
-        Here, the computer vision software detects the time signature, the rhythm of the notes, and the measure 
-        bars in order to figure out when a line starts and ends.
-      </p>
-      <img src="img/Orchestra_images/segmentation_and_detection_total.png" alt="Segmentation and Detection">
-
-    <h3>Recognition</h3>
-      <p>
-        Finally, we see that the software has the capability to recognize which time signature the sheet music
-        indicates, the specific pitches of the notes appended with its note duration, and grouped notes within brackets
-        in order to denote chords. Orchestra is built to be able to recognize sharps and flats as well as dotted notes.
-        All of this information is outputted as multiple arrays depending on the number of lines in the sheet music.
-      </p>
-      <img src="img/Orchestra_images/recognition.png" alt="Recognition">
   </div>
 </section>
 <!--Sensing-->
