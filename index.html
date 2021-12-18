@@ -359,11 +359,13 @@
           the stop of the music. 
         </p>
 
+        <br>
         <p>
           These positions were recreated by hand on the Baxter robot, and a helper function save_joint_vals.py was used in order to name and save 
           the joint positions as text files in the motion/positions/ folder. These positions were recorded for each arm individually, so different 
           sequences of left and right arm motions were supported. 
         </p>
+        <br>
 
         <p>
           Care was taken with setting each joint so that each connecting motion would have efficient joint movements, and pose symmetrical for 
@@ -381,12 +383,16 @@
           with music_commands.tempo setting the time allocated to each motion. 
         </p>
 
+        <br>
+
         <p>
           The planner is initialized and we iterate through the list of motions given for each arm. At each step, the joint 
           position indicated by the motion name is retrieved from a text file stored in motion/positions/. The joint positions 
           for each arm are combined to form a goal joint position for both arms, which is input into the planner, and a plan is output.
         </p>
 
+        <br>
+        
         <p>
           With this plan, we use the execute function in MoveGroupCommander with synchronous execution (wait = False) so that we can run a 
           timer and stop the execution when the time allocated by tempo has passed. From wherever the arm stopped, a plan for the next step 
@@ -413,6 +419,8 @@
     <iframe width="560" height="315" src="https://www.youtube.com/embed/CwRsXUbEWsk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/kMszsECiIWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     
+    <br>
+    <br>
     <br>
     <br>
     
