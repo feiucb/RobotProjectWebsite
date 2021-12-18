@@ -484,51 +484,6 @@
     <img src="img/Sheet_music/canon_in_d.png" style="float:left;width:560px;height:315px;" alt="Canon D">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/iuCKFPoy_r0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   
-<<<<<<< HEAD
-    <div class="Results_block">
-      <p>
-        Orchestra was able to successfully read music in 4/4, accurately read the pitch and duration of notes, and parse it in a readable format with no errors. 
-        From here, we were able to feed in the text format into our planning parser for further processing.
-      </p>
-
-      <br>
-
-      <p>
-        We were able to read the output text representation of the sheet music and send the appropriate information through ROS topics using a publish and subscribe system. 
-        Both the OMR software and the planner were configured to work reliably before the project showcase in order for Baxter to make the appropriate executions.
-      </p>
-
-      <br>
-
-      <p>
-        Baxter was able to execute the conducting motions for a simple case (Hot Cross Buns) and a more complex case (Canon in D). Tempos up to 75 beats per minute (bpm) were achieved. 
-      </p>
-
-      <br>
-
-      <p>
-        Hot Cross Buns requires 4 sets (measures) of 4/4 conducting pattern with both arms with the last set being an ending sequence of two beats, a hold, and a cutoff. 
-        Baxter performs these actions with correct tempo at 60 bpm, staying synced with the music. 
-      </p>
-
-      <br>
-
-      <p>
-        Canon in D has a more complex pattern which includes a left arm crescendo cue (where the arm rises over the course of a measure). To set up this crescendo motion, 
-        the left arm rests in a neutral position for the prior measure, and following the crescendo, resumes the 4/4 conducting pattern. While Baxter followed the 
-        music at 60 bpm well through the crescendo, the transition into resuming the 4/4 conducting pattern lagged behind the beat. The ending motion over a whole note (4 beats) was well executed. 
-      </p>
-
-      <br>
-
-      <p>
-        A faster tempo 75bpm for Hot Cross Buns was able to keep the timing with the music. However, the faster cutoffs of the motions caused a right arm motion to fail for one beat. 
-        Here, although the planner was unable to find a path for that beat, it was able to recover on the following motion. This recovery is a good sign of the robustness of the 
-        planning and execution design, since the conductor does not stop with a single error, which becomes even more important when conducting a long piece. 
-      </p>
-    </div>
-=======
->>>>>>> b3308c8de865ffbae4e1569918589f122bf2906a
   </div>
 </div>
 </section>
