@@ -113,11 +113,40 @@
         </li>
       </ul>
     </div>
+
+    <h2>Design Choices for Motion</h2>
+    <div class="Design_block">
+      <p>
+        We require our robot conductor to repeat a sequence of motions many times, so reproducibility of target poses is 
+        critical. To accomplish this, we chose to set target poses as robot joint positions instead of end effector poses. 
+        By doing this, we reduce the drift from desired positions that can accumulate over many iterations, and reduce the 
+        probability of the MoveIt path planner from choosing an undesirable roundabout path. 
+      </p>
+
+      <figure>
+        <img src="img/conductor_motion_44.png" alt="Conductor Motion" style="width:100%">
+        <figcaption>Diagram of Conductor Motion in 4/4 Time</figcaption>
+      </figure>
+
+      <p>
+        When a human conductor speeds up the tempo, the conducting motion pattern becomes more compact. For example the 4/4 pattern 
+        in the image will be proportionally scaled down. In recreating this on our robot conductor, we quickly realized that guiding 
+        the end effector poses to trace out a pattern would be very tedious. We chose to use joint positions to create target poses 
+        for the endpoints of each beat, which are the numbered corners in the image. For the same arm velocity, allocating a shorter 
+        time to go to each target position allows for the pattern to become smaller and the tempo of conducting to increase. 
+      </p>
+    </div>
+
+    <!--Ending line of Design-->
+    <div class="Design_block">
+      <p>
+        <strong>To see specific implementation details, please see the Sensing, Planning, and Actuation sections.</strong>
+      </p>
+    </div>
   </div>
-  <p>
-    <strong>To see specific implementation details, please see the Sensing, Planning, and Actuation sections.</strong>
-  </p>
+  
 </section>
+<!--Design-->
 
 <!--Sensing-->
 <section id="Sensing">
@@ -246,6 +275,36 @@
 									<p>Publish and subscribe system	</p>
                   <img src="img/subscribe.jpg" alt="subscribe Diagrams">
 								</div><!-- /.col-md-6 -->
+
+                <div class="col-md-6">
+                  <h3>Planner</h3>
+                  <p>
+                    The purpose of the planner is to plan the arm trajectory 
+                    between positions at the correct speed.
+                  </p>
+
+                  <p>
+                    The PathPlanner class instantiates the MoveIt commander, MoveGroupCommander 
+                    with both_arms of the Baxter robot. The plan_to_joint_goal function takes the 
+                    target joint position of both arms as an input and uses MoveIt to plan a 
+                    trajectory from the current joint position to the target joint position. 
+                    This plan is computed using the inverse kinematics (IK) solver TRAC-IK and 
+                    returns a RobotTrajectory message. To increase the trajectory speed, we scale 
+                    the joint velocity within RobotTrajectory.JointTrajectory by a user-determined 
+                    factor.
+                  </p>
+
+                  <h3>Configuration</h3>
+                  <p>
+                    The main issue we encountered in implementing the conductor was getting accurate 
+                    timings of the motions. We found that the TRAC-IK solver is significantly faster 
+                    than the default KDL solver, drastically reducing the lag between successive motions. 
+                    We include the TRAC-IK package and modify the Baxter MoveIt configuration kinematics.yaml 
+                    file to switch IK solvers. Additionally, we turn off joint velocity limits in MoveIt 
+                    configuration joint_limits.yaml, so velocity limits are set to Baxter maximum joint velocities.
+                  </p>
+
+                </div>
 								
 							</div><!-- /.row -->	
 						</div><!-- /.col-lg-12 -->
@@ -334,6 +393,27 @@
 
             </div>
         
+      </div>
+
+      <div class="Actuation_block">
+        <h3>Execution and Timing</h3>
+        <p>
+          Execution of the robot commands sent by the music reader is done by the function conductor_motion. 
+          This node subscribes to the conductor_commands topic and executes the motions given in music_commands messages 
+          with music_commands.tempo setting the time allocated to each motion. 
+        </p>
+
+        <p>
+          The planner is initialized and we iterate through the list of motions given for each arm. At each step, the joint 
+          position indicated by the motion name is retrieved from a text file stored in motion/positions/. The joint positions 
+          for each arm are combined to form a goal joint position for both arms, which is input into the planner, and a plan is output.
+        </p>
+
+        <p>
+          With this plan, we use the execute function in MoveGroupCommander with synchronous execution (wait = False) so that we can run a 
+          timer and stop the execution when the time allocated by tempo has passed. From wherever the arm stopped, a plan for the next step 
+          was calculated. This results in a compact right arm beat pattern when tempo is increased.
+        </p>
       </div>
     </div> 
     </div>  
