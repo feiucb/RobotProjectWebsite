@@ -498,9 +498,9 @@
       <br>
 
       <p>
-        Currently, the speed of the arms is fixed, and the parameter we modify is the tempo, which cuts off the motion at the right timing. This works for tempos up to 75 BPM, 
-        but looks clunky when under 40 BPM because the motion is fast and pauses long. A dynamic assignment of the velocity scaling factor may allow for conducting motions to 
-        stay smooth with varying tempo.
+        Currently, the speed of the arms can be specified in any range from 10 bpm to 80 bpm. The robot will intelligently adjust its limb speed in real-time to ensure that it always
+	      hits the next pose exactly when the next beat occurs. The robot will also execute smaller movements if the beats per minute is very high (this is to replicate human conductors since
+	      they will move their hands shorter distances if they need to conduct very fast).
       </p>
 
       <br>
@@ -510,6 +510,16 @@
         bad paths between the cut off joint position and the next target, implementing a new set of joint positions for a smaller conducting pattern for faster tempos may 
         help resolve this issue. There would be a range of tempos where the normal and smaller patterns are used, and within those, the timing will modify their sizes further. 
       </p>
+	    
+	    <p>
+		    
+		    The entire application can be run with once single command that executes every required script. The user can run ./FullScript.sh and specity a beats per minute value, and the robot
+		    will execute all the required steps for conducting (recognizing the sheet music image, converting it to conductor motions, and executing those motions). Currently, the robot will conduct an
+		    image of sheet music that is stored in src/sensing/camera_output. Ideally, a future improvement would be to let the robot use the head camera to recognize a real piece of paper with sheet music (probably by placing
+		    an AR tag next to it), then storing the cropped image from the head camera in src/sensing/camera_output. This addition would connect perfectly to the code that we have already written.
+	    </p>
+	    
+	    <br>
 
       <br>
 
